@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perbandingan Nilai Peserta</title>
+  <link href='/style.css' rel='stylesheet'>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <i class="fas fa-calculator"></i>
+      <span>CalcCPNS</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="theme-switch">
+      <i class="fas fa-moon"></i>
+      <label class="switch">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </nav>
+
+  <section class="comparison-section">
+    <h2>Perbandingan Nilai Peserta</h2>
+    <form id="nilaiForm">
+      <div id="pesertaContainer">
+        <div class="peserta">
+          <h3>Peserta 1</h3>
+          <label for="nama">Nama:</label>
+          <input type="text" class="nama" placeholder="Nama Peserta" required>
+  
+          <label for="twk">TWK:</label>
+          <input type="number" class="twk" placeholder="Nilai TWK" required>
+  
+          <label for="tiu">TIU:</label>
+          <input type="number" class="tiu" placeholder="Nilai TIU" required>
+  
+          <label for="tkp">TKP:</label>
+          <input type="number" class="tkp" placeholder="Nilai TKP" required>
+  
+          <label for="cat">CAT BKN:</label>
+          <input type="number" class="cat" placeholder="Nilai CAT" required>
+  
+          <label for="ww">Wawancara:</label>
+          <input type="number" class="ww" placeholder="Nilai Wawancara" required>
+  
+          <label for="mt">Microteaching:</label>
+          <input type="number" class="mt" placeholder="Nilai Microteaching" required>
+        </div>
+      </div>
+  
+      <div class="form-buttons">
+        <button type="button" onclick="tambahPeserta()">Tambah Peserta</button>
+        <button type="button" onclick="bandingkanNilai()">Bandingkan Nilai</button>
+      </div>
+  
+      <label for="formasi">Jumlah Formasi:</label>
+      <input type="number" id="formasi" placeholder="Jumlah Formasi" required>
+    </form>
+  
+    <div id="output" class="output" style="display: none;"></div>
+  </section>
+  
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <i class="fas fa-calculator"></i>
+        <span>CalcCPNS</span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="footer-socials">
+        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 CalcCPNS. All rights reserved.</p>
+    </div>
+  </footer>
+
+  
+  <script defer type="text/javascript" src="/main.js"></script>
+  <script defer type="text/javascript" src="/toggle.js"></script>
+  
+
+</body>
+</html>
