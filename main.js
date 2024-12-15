@@ -8,7 +8,7 @@ function tambahPeserta() {
   div.classList.add('peserta');
   div.innerHTML = `
     <h3>Peserta ${pesertaCount}</h3>
-    <label for="nama">Nama:</label>
+    <label for="nama">Nama Peserta:</label>
     <input type="text" class="nama" placeholder="Nama Peserta" required>
 
     <label for="twk">TWK:</label>

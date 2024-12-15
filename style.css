@@ -9,7 +9,7 @@ body {
 .comparison-section {
   max-width: 800px;
   margin: 40px auto;
-  margin-top: 70px;
+  margin-top: 100px;
   padding: 20px;
   background-color: #ffffff;
   border-radius: 10px;
@@ -66,9 +66,9 @@ button {
   padding: 10px 15px;
   font-size: 14px;
   color: #fff;
-  background-color: #007bff;
+  background-color: #1e1e1e;
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -232,4 +232,172 @@ th {
 
 tr:nth-child(even) {
   background-color: #f2f2f2;
+}
+
+/* lOGO */
+/* Wadah logo */
+.logo-container {
+  display: flex;
+  justify-content: center;  /* Menyusun logo secara horizontal di tengah */
+  align-items: center;  /* Menyusun logo secara vertikal di tengah */
+/* Menentukan tinggi wadah (optional, jika ingin memenuhi layar penuh) */
+}
+
+/* Gaya logo */
+.logo {
+  max-width: 100%;  /* Menyesuaikan ukuran logo dengan lebar wadah */
+  height: auto;  /* Menjaga rasio aspek logo */
+}
+
+
+/* service */
+
+
+.service-container {
+  display: flex;
+  margin-top: 150px;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  grid-column-gap: 9px;
+  /* border-radius: 20px; */
+  padding: 20px;
+}
+
+
+
+.service {
+  background-color: #1f211c;
+  color: white;
+  padding: 30px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  align-items: center;
+  max-width: 1140px;
+  grid-row-gap: 13px;
+  margin-right: auto;
+  text-align: center;
+  width: 240px;
+  transition: transform 0.3s ease;
+}
+
+
+@media (max-width: 1140px) {
+  .service {
+      width: 230px;
+  }
+}
+
+.p-service {
+  color: white;
+  font-family: Archivo, sans-serif;
+  font-size: 16px;
+}
+
+
+.service:hover {
+  transform: translateY(-10px);
+}
+
+.icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.text {
+  line-height: 1.5;
+  font-size: 14px;
+  line-height: 1.8;
+  letter-spacing: -0.006em;
+  color: #ababab;
+}
+
+@media (max-width: 768px) {
+  .service-container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .service-container-blog {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .service {
+      width: 80%;
+      margin-bottom: 10px;
+  }
+}
+
+
+.plan-button {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #000000;
+  background-color: #ffffff;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.plan-button:hover {
+  background-color: #555;
+}
+
+.plan.popular .plan-button {
+  background-color: #ffffff;
+  color: #000;
+}
+
+.plan.popular .plan-button:hover {
+  background-color: #402218;
+  color: #fff;
+}
+
+/* float chat */
+
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  width: 50px;  /* Ukuran total kontainer */
+  height: 50px; /* Ukuran total kontainer */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whatsapp-float a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;  /* Memastikan link memenuhi kontainer */
+  height: 100%; /* Memastikan link memenuhi kontainer */
+  background-color: #25D366;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  position: relative; /* Untuk posisi dot merah relatif terhadap link */
+}
+
+.whatsapp-float img {
+  width: 60%;   /* Ukuran ikon di dalam kontainer */
+  height: 60%;  /* Ukuran ikon di dalam kontainer */
+  border-radius: 50%;
+}
+
+.notification-dot {
+  position: absolute;
+  top: -5px; /* Jarak dari atas kontainer */
+  right: -5px; /* Jarak dari kanan kontainer */
+  width: 12px; /* Ukuran dot */
+  height: 12px; /* Ukuran dot */
+  background-color: red; /* Warna dot merah */
+  border-radius: 50%; /* Membuat dot berbentuk bulat */
+  border: 2px solid white; /* Opsional: Border putih di sekitar dot */
 }
