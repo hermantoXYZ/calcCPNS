@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CalcCPNS - Perbandingan Nilai Peserta</title>
+  <link rel="icon" href="/icon-32x32.png" type="image/x-icon">
+  <link href='/style.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <a href="/" style="text-decoration: none; color: inherit;">
+          <i class="fas fa-calculator"></i>
+          <span>CalcCPNS</span>
+      </a>
+      <div class="quote">"Menghitung peluang, Posisi Skor SKD & SKB CPNS."</div>
+  </div>
+  
+  </nav>
+  <section class="comparison-section">
+    <h1 style="text-align: center;">Kalkulator Integrasi SKD & SKB</h1>
+    <div class="logo-container">
+      <img src="/logo.webp" alt="Logo" class="logo">
+    </div>    
+    <p style="text-align: center;"> Kalkulator yang dapat digunakan untuk menghitung nilai akhir berdasarkan bobot 40% untuk SKD dan 60% untuk SKB dan menampilkan posisi peserta berdasarkan nilai akhir.</p>
+    <form id="nilaiForm">
+      <div id="pesertaContainer">
+        <div class="peserta">
+          <h3>Peserta 1</h3>
+          <label for="nama">Nama Peserta:</label>
+          <input type="text" class="nama" placeholder="Nama Peserta" required>
+  
+          <label for="twk">TWK:</label>
+          <input type="number" class="twk" placeholder="Nilai TWK" required>
+  
+          <label for="tiu">TIU:</label>
+          <input type="number" class="tiu" placeholder="Nilai TIU" required>
+  
+          <label for="tkp">TKP:</label>
+          <input type="number" class="tkp" placeholder="Nilai TKP" required>
+  
+          <label for="cat">CAT BKN:</label>
+          <input type="number" class="cat" placeholder="Nilai CAT" required>
+  
+        </div>
+      </div>
+
+
+
+  
+      <div class="form-buttons">
+        <button type="button" onclick="tambahPeserta()">
+            <i class="fas fa-user-plus"></i> Tambah Peserta
+        </button>
+        <button type="button" onclick="bandingkanNilai()">
+            <i class="fas fa-chart-bar"></i> Bandingkan Nilai
+        </button>
+        
+    </div>
+    
+    <select id="skbMax" required>
+      <option value="500">500</option>
+      <option value="400">400</option>
+    </select>
+
+      <input style="margin-left:20px; max-width: 120px;" type="number" id="formasi" placeholder="Jumlah Formasi" required>
+    </form>
+
+
+  
+    <div id="output" class="output" style="display: none;"></div>
+  </section>
+  
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <i class="fas fa-calculator"></i>
+        <span>CalcCPNS</span>
+      </div>
+  
+
+    </div>
+    <div class="footer-bottom">
+ <!-- Histats.com  (div with counter) --><div id="histats_counter"></div>
+<!-- Histats.com  START  (aync)-->
+<script type="text/javascript">var _Hasync= _Hasync|| [];
+  _Hasync.push(['Histats.startgif', '1,4916513,4,10048,"div#histatsC {position: absolute;top:0px;left:0px;}body>div#histatsC {position: fixed;}"']);
+  _Hasync.push(['Histats.fasi', '1']);
+  _Hasync.push(['Histats.track_hits', '']);
+  (function() {
+  var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+  hs.src = ('//s10.histats.com/js15_gif_as.js');
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+  })();</script>
+  <noscript><a href="/" alt="" target="_blank" ><div id="histatsC"><img border="0" src="//s4is.histats.com/stats/i/4916513.gif?4916513&103"></div></a>
+  </noscript>
+  <!-- Histats.com  END  -->
+      <p>© 2024 CalcCPNS. Developed by <a href="https://docs.hermanto.xyz/home" style="text-decoration: none; color: inherit;" >HermantoXYZ</a></p>
+  </div>
+  </footer>
+  <div class="whatsapp-float"><a href="https://api.whatsapp.com/send/?phone=6289512402404&amp;text=Halo+Kak" target="_blank"><img src="https://inviteku.com/media/logo/favicon/WhatsApp_icon.png" alt="Chat Admin"><span class="notification-dot"></span><!-- Dot Merah --></a></div>
+  
+  <script>
+
+let pesertaCount = 1;
+
+function tambahPeserta() {
+  pesertaCount++;
+  const container = document.getElementById('pesertaContainer');
+  const div = document.createElement('div');
+  div.classList.add('peserta');
+  div.innerHTML = `
+    <h3>Peserta ${pesertaCount}</h3>
+    <label for="nama">Nama Peserta:</label>
+    <input type="text" class="nama" placeholder="Nama Peserta" required>
+
+    <label for="twk">TWK:</label>
+    <input type="number" class="twk" placeholder="Nilai TWK" required>
+
+    <label for="tiu">TIU:</label>
+    <input type="number" class="tiu" placeholder="Nilai TIU" required>
+
+    <label for="tkp">TKP:</label>
+    <input type="number" class="tkp" placeholder="Nilai TKP" required>
+
+    <label for="cat">CAT BKN:</label>
+    <input type="number" class="cat" placeholder="Nilai CAT" required>
+
+  `;
+  container.appendChild(div);
+}
+
+function bandingkanNilai() {
+  const pesertaElements = document.querySelectorAll('.peserta');
+  const formasi = parseInt(document.getElementById('formasi').value) || 0; // Ambil jumlah formasi
+  const skbMax = parseInt(document.getElementById('skbMax').value) || 500; // Ambil nilai skor maksimal SKB
+  const pesertaData = [];
+
+  pesertaElements.forEach((peserta) => {
+    const nama = peserta.querySelector('.nama').value;
+    const twk = parseFloat(peserta.querySelector('.twk').value) || 0;
+    const tiu = parseFloat(peserta.querySelector('.tiu').value) || 0;
+    const tkp = parseFloat(peserta.querySelector('.tkp').value) || 0;
+    const cat = parseFloat(peserta.querySelector('.cat').value) || 0;
+
+    // Hitung Total SKD
+    const totalSKD = twk + tiu + tkp;
+    const skd40 = (totalSKD / 550) * 100 * 0.4;
+
+    // Hitung Total SKB (CAT) dengan skor maksimal SKB yang dipilih
+    const skb60 = (cat / skbMax) * 100 * 0.6;
+
+    // Hitung Nilai Akhir
+    const nilaiAkhir = skd40 + skb60;
+
+    pesertaData.push({
+      nama,
+      twk, tiu, tkp, cat,
+      totalSKD: totalSKD.toFixed(2),
+      totalSKB: cat.toFixed(2),
+      nilaiAkhir: nilaiAkhir.toFixed(2),
+      status: 'Lulus', // Default, akan diperbarui
+    });
+  });
+
+  // Urutkan peserta berdasarkan nilai akhir secara descending
+  pesertaData.sort((a, b) => b.nilaiAkhir - a.nilaiAkhir);
+
+  // Perhatikan jumlah formasi
+  let lulusCount = 0;
+  pesertaData.forEach((peserta) => {
+    if (lulusCount < formasi) {
+      peserta.status = 'Lulus';
+      lulusCount++;
+    } else {
+      peserta.status = 'Tidak Lulus (Di luar formasi)';
+    }
+  });
+
+  // Buat baris tabel untuk semua peserta
+  const pesertaLulus = pesertaData.map((peserta, index) => {
+    return `<tr>
+      <td>${index + 1}</td>
+      <td>${peserta.nama}</td>
+      <td>${peserta.twk}</td>
+      <td>${peserta.tiu}</td>
+      <td>${peserta.tkp}</td>
+      <td>${peserta.cat}</td>
+      <td>${peserta.totalSKD}</td>
+      <td>${peserta.totalSKB}</td>
+      <td>${peserta.nilaiAkhir}</td>
+      <td>${peserta.status}</td>
+    </tr>`;
+  }).join('');
+
+
+  // Tampilkan hasil dalam tabel
+  const outputDiv = document.getElementById('output');
+  outputDiv.style.display = 'block';
+  outputDiv.innerHTML = `
+  <h3>Hasil Perbandingan Nilai Peserta</h3>
+  <div class="table-container">
+    <table style="width: 100%; border-collapse: collapse;">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Nama</th>
+          <th>TWK</th>
+          <th>TIU</th>
+          <th>TKP</th>
+          <th>CAT BKN</th>
+          <th>Total SKD</th>
+          <th>Total SKB</th>
+          <th>Nilai Akhir</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${pesertaLulus}
+      </tbody>
+    </table>
+  </div>
+  `;
+}
+
+
+
+
+  </script>
+  
+
+</body>
+</html>

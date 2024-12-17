@@ -401,3 +401,27 @@ tr:nth-child(even) {
   border-radius: 50%; /* Membuat dot berbentuk bulat */
   border: 2px solid white; /* Opsional: Border putih di sekitar dot */
 }
+
+
+/* Styling for the select element */
+#skbMax {
+  width: 70px; /* Set a fixed width */
+  padding: 10px; /* Add some padding for better spacing */
+  font-size: 16px; /* Adjust font size */
+  border: 2px solid #c8c8c8;
+  border-radius: 5px; /* Rounded corners */
+  background-color: #f9f9f9; /* Light background color */
+  color: #333; /* Dark text color */
+  transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+/* Change border color when the select element is focused */
+#skbMax:focus {
+  border-color: #007BFF; /* Blue border on focus */
+  outline: none; /* Remove default outline */
+}
+
+/* Style the option elements */
+#skbMax option {
+  padding: 10px; /* Padding for better option spacing */
+}
